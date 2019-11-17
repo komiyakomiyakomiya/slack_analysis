@@ -103,17 +103,23 @@ def plot(users_list):
         # print(f'{user}の画像書き出しに失敗しました')
 
 
+# %%
 print('###### rankA_継続 ######')
 plot(rank_a_list)
 # plot(rank_a_unsub_list)
+# %%
 print('###### rank_B_継続 ######')
 plot(rank_b_list)
+# %%
 print('###### rank_B_退会 ######')
 plot(rank_b_unsub_list)
+# %%
 print('###### rank_C_継続 ######')
 plot(rank_c_list)
+# %%
 print('###### rank_C_退会 ######')
 plot(rank_c_unsub_list)
+# %%
 
 
 def plot_all(users_list):
@@ -142,15 +148,20 @@ def plot_all(users_list):
     # get_figure().savefig(f'./images/{users_list}.png')
 
 
+# %%
 print('###### rankA_継続 ######')
 plot_all(rank_a_list)
 # pl_allot(rank_a_unsub_list)
+# %%
 print('###### rank_B_継続 ######')
 plot_all(rank_b_list)
+# %%
 print('###### rank_B_退会 ######')
 plot_all(rank_b_unsub_list)
+# %%
 print('###### rank_C_継続 ######')
 plot_all(rank_c_list)
+# %%
 print('###### rank_C_退会 ######')
 plot_all(rank_c_unsub_list)
 
