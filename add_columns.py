@@ -55,7 +55,8 @@ offline_set = {
     'Katsuya Nagano',
     '尾銭泰徳 ozeni.yasunori',
     'Komiya',
-    'はやと-休学中の文系学生',
+    'はやと-休学中のeｎ
+    ｄ文系学生',
     '吉村　政彦',
     '澤祐斗',
     'sota_sakuma',
@@ -107,7 +108,7 @@ display(pd.crosstab(df_status['rank'],
 sns.countplot(x='rank', hue='join_offline', data=df_status)
 plt.title('オフ会参加経験とアクティブランク')
 plt.xticks([0, 1, 2], ['アクティブ', '準アクティブ', '非アクティブ'])
-plt.legend(['参加経験アリ', '参加経験ナシ'])
+plt.legend(['参加経験ナシ', '参加経験アリ'])
 plt.show()
 # %%
 df_off.to_csv('output/users_status.csv')

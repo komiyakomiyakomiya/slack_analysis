@@ -56,7 +56,7 @@ display(pd.crosstab(df_status['rank'],
 sns.countplot(x='rank', hue='join_offline', data=df_status)
 plt.title('オフ会参加経験とアクティブランク')
 plt.xticks([0, 1, 2], ['アクティブ', '準アクティブ', '非アクティブ'])
-plt.legend(['参加経験アリ', '参加経験ナシ'])
+plt.legend(['参加経験ナシ', '参加経験アリ'])
 plt.show()
 # %%
 df_status.to_csv('output/users_status.csv')
