@@ -8,6 +8,8 @@ class GetList(object):
         self.df_selfintro_users_status = pd.read_csv(
             'input/selfintro_users_status.csv')
 
+        self.df_enroll_users = pd.read_csv('input/enroll_users.csv')
+
     def selfintro_users_all(self):
         selfintro_users_all_list = [
             i for i in self.df_selfintro_users_status['user']]
@@ -29,6 +31,12 @@ class GetList(object):
                 (self.df_selfintro_users_status['rank'] == rank) & (self.df_selfintro_users_status['enroll'] == enroll)]['user']]
         return selfintro_users_enroll_rank_list
 
+    def enroll_users(self):
+        enroll_users = self.df_enroll_users[self.df_enroll_users['flag'] == 1]['real_name_normalized']
+        display(enroll_users)
+        enroll_users_list = [i for i in enroll_users]
+        return enroll_users_list
+
 
 if __name__ == '__main__':
     get_list = GetList()
@@ -43,8 +51,10 @@ if __name__ == '__main__':
     # print(selfintro_users_a_list)
     # print(len(selfintro_users_a_list))
 
-    selfintro_users_enroll_rank_list = get_list.selfintro_users_enroll_rank(
-        'b', 0)
-    print(selfintro_users_enroll_rank_list)
-    print(len(selfintro_users_enroll_rank_list))
+    # selfintro_users_enroll_rank_list = get_list.selfintro_users_enroll_rank('b', 0)
+    # print(selfintro_users_enroll_rank_list)
+    # print(len(selfintro_users_enroll_rank_list))
+
+    enroll_users_list = get_list.enroll_users()
+    print(enroll_users_list)
 # %%

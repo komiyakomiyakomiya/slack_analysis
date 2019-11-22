@@ -12,8 +12,8 @@ class GetDict(object):
         self.df_users = pd.read_csv('input/users.csv', sep='\t')
         self.df_comments_per_day = pd.read_csv(
             'input/comments_par_day.csv')
-        self.df_remain_users = pd.read_csv(
-            'input/remain_users.csv')
+        self.df_enroll_users = pd.read_csv(
+            'input/enroll_users.csv')
         self.df_selfintro = pd.read_csv('input/selfintro.csv')
 
     def _utc_to_jst(self, unix, format):
@@ -101,12 +101,12 @@ class GetDict(object):
         active_rank_dict = df_comments_per_day_replace_index['rank'].to_dict()
         return active_rank_dict
 
-    def remain_users(self):
-        remain_users_replace_index = self.df_remain_users.set_index(
+    def enroll_users(self):
+        enroll_users_replace_index = self.df_enroll_users.set_index(
             'display_name_normalized')
-        print(remain_users_replace_index['flag'].sum())
-        remain_users_dict = remain_users_replace_index['flag'].to_dict()
-        return remain_users_dict
+        print(enroll_users_replace_index['flag'].sum())
+        enroll_users_dict = enroll_users_replace_index['flag'].to_dict()
+        return enroll_users_dict
 
     def self_intro(self):
         users_dict = self.users_id_name()
@@ -148,14 +148,14 @@ if __name__ == '__main__':
     # join_dict = get_dict.users_join_datetime('%Y-%m-%d')
     # print(join_dict)
 
-    # active_rank_dict = get_dict.active_rank()
-    # print(active_rank_dict)
+    active_rank_dict = get_dict.active_rank()
+    print(active_rank_dict)
 
-    # remain_users_dict = get_dict.remain_users()
-    # print(remain_users_dict)
+    # enroll_users_dict = get_dict.enroll_users()
+    # print(enroll_users_dict)
 
-    self_intro_dict = get_dict.selfintro_datetime('%Y-%m-%d')
-    print(self_intro_dict)
+    # self_intro_dict = get_dict.selfintro_datetime('%Y-%m-%d')
+    # print(self_intro_dict)
 
 
 # %%

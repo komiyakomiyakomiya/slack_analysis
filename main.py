@@ -1,5 +1,5 @@
 # %%
-# !pip install pep8 flake8 autopep8 pylint japanize-matplotlib kaggle python-language-server pyls python-dotenv networkx wordcloud pandas numpy pandas-profiling matplotlib seaborn janome
+ !pip install pep8 flake8 autopep8 pylint japanize-matplotlib kaggle python-language-server pyls python-dotenv networkx wordcloud pandas numpy pandas-profiling matplotlib seaborn janome
 # !pip install xlwt
 # !pip install openpyxl
 
@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 # import networkx as nx
 import numpy as np
 import seaborn as sns
-# from wordcloud import WordCloud
+from wordcloud import WordCloud
 
 from utils import dictionary
 from utils import user_list
@@ -97,28 +97,28 @@ def plot(users_list):
         ax.set_ylabel('コメント数')
         plt.title(user)
         plt.show()
-        # try:
-        # ax.get_figure().savefig(f'./images/{user}.png')
-        # except:
-        # print(f'{user}の画像書き出しに失敗しました')
+        try:
+            ax.get_figure().savefig(f'./images/{user}.png')
+        except:
+            print(f'{user}の画像書き出しに失敗しました')
 
 
 # %%
 print('###### rankA_継続 ######')
-plot(rank_a_list)
+# plot(rank_a_list)
 # plot(rank_a_unsub_list)
 # %%
 print('###### rank_B_継続 ######')
-plot(rank_b_list)
+# plot(rank_b_list)
 # %%
 print('###### rank_B_退会 ######')
 plot(rank_b_unsub_list)
 # %%
 print('###### rank_C_継続 ######')
-plot(rank_c_list)
+# plot(rank_c_list)
 # %%
 print('###### rank_C_退会 ######')
-plot(rank_c_unsub_list)
+# plot(rank_c_unsub_list)
 # %%
 
 
@@ -150,20 +150,35 @@ def plot_all(users_list):
 
 # %%
 print('###### rankA_継続 ######')
-plot_all(rank_a_list)
+# plot_all(rank_a_list)
 # pl_allot(rank_a_unsub_list)
 # %%
 print('###### rank_B_継続 ######')
-plot_all(rank_b_list)
+# plot_all(rank_b_list)
 # %%
 print('###### rank_B_退会 ######')
-plot_all(rank_b_unsub_list)
+# plot_all(rank_b_unsub_list)
 # %%
 print('###### rank_C_継続 ######')
-plot_all(rank_c_list)
+# plot_all(rank_c_list)
 # %%
 print('###### rank_C_退会 ######')
-plot_all(rank_c_unsub_list)
+# plot_all(rank_c_unsub_list)
+
+
+# %%
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+print(f'ax.lines : {ax.lines}')
+line1, = ax.plot(x, np.sin(x), label='1st plot')
+
+# # %%
+text = df['text']
+display = text
+
+
+# stopwords = {"", ""}
+# wc = WordCloud(width=480, height=320)
 
 
 # %%
