@@ -46,8 +46,23 @@ offline_set = {
 
 df_status['join_offline'] = 0
 for i in range(len(df_status['join_offline'])):
+    # display(df_status.head())
     if df_status['user'][i] in offline_set:
         df_status['join_offline'][i] = 1
+
+# %%
+df_status
+# %%
+ignore_list = [
+    'Slackbot',
+    'GitHub',
+    '村上 智之',
+    '國分咲良',
+    '岡村龍弥'
+]
+df_status.drop(
+    df_status.index[df_status['user'].isin(ignore_list)], inplace=True)
+
 
 display(pd.crosstab(df_status['rank'], df_status['join_offline']))
 display(pd.crosstab(df_status['rank'],
@@ -60,5 +75,8 @@ plt.legend(['参加経験ナシ', '参加経験アリ'])
 plt.show()
 # %%
 df_status.to_csv('output/users_status.csv')
+
+# %%
+df_status.head(60)
 
 # %%
