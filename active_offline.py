@@ -51,8 +51,6 @@ for i in range(len(df_status['join_offline'])):
         df_status['join_offline'][i] = 1
 
 # %%
-df_status
-# %%
 ignore_list = [
     'Slackbot',
     'GitHub',
@@ -75,8 +73,5 @@ plt.legend(['参加経験ナシ', '参加経験アリ'])
 plt.show()
 # %%
 df_status.to_csv('output/users_status.csv')
-
-# %%
-df_status.head(60)
 
 # %%
